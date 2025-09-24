@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quran Reflections - Pages 1&2 | Al-Fatiha & Al-Baqarah Opening</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Amiri', serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            line-height: 1.8;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            font-style: italic;
+        }
+
+        .surah-container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 3px solid #e8f4fd;
+        }
+
+        .surah-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .surah-title {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .surah-info {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .verses-section {
+            margin-bottom: 40px;
+        }
+
+        .verse-container {
+            margin-bottom: 30px;
+            padding: 30px;
+            background: linear-gradient(135deg, #f8f9ff, #e8f4fd);
+            border-radius: 15px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .verse-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .verse-container.active {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border-left-color: #8b4513;
+            box-shadow: 0 10px 25px rgba(139, 69, 19, 0.2);
+        }
+
+        .verse-number {
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #667eea;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .verse-container.active .verse-number {
+            background: #8b4513;
+        }
+
+        .arabic-text {
+            font-family: 'Scheherazade New', 'Amiri', serif;
+            font-size: 2.4rem;
+            line-height: 2.3;
+            text-align: right;
+            direction: rtl;
+            color: #2c3e50;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .english-text {
+            font-size: 1.3rem;
+            line-height: 1.9;
+            color: #34495e;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            font-style: italic;
+        }
+
+        .reflections-section {
+            margin-top: 50px;
+        }
+
+        .reflections-header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding: 25px;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            border-radius: 15px;
+            border: 3px solid #8b4513;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .reflections-header h3 {
+            color: #8b4513;
+            font-size: 1.9rem;
+            margin-bottom: 10px;
+        }
+
+        .reflection-block {
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            padding: 35px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #8b4513;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .reflection-arabic {
+            font-family: 'Scheherazade New', 'Amiri', serif;
+            font-size: 1.4rem;
+            line-height: 2.1;
+            text-align: right;
+            direction: rtl;
+            color: #6d4c2c;
+            margin-bottom: 25px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+        }
+
+        .reflection-english {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #6d4c2c;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 50px;
+            padding: 35px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .coming-soon {
+            background: linear-gradient(135deg, #ffeaa7, #fdcb6e);
+            border: 3px solid #e17055;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin: 25px 0;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .coming-soon h3 {
+            color: #d63031;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .coming-soon p {
+            color: #2d3436;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+        }
+
+        .coming-soon .highlight {
+            font-weight: bold;
+            color: #d63031;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .arabic-text {
+                font-size: 2rem;
+                line-height: 2.1;
+            }
+            
+            .surah-container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 style="font-family: 'Scheherazade New', 'Amiri', serif; font-size: 2.2rem; margin-bottom: 10px;">🕌 تأملات قرآنية - الصفحات ١ و ٢ 🕌</h1>
+            <h1>🕌 Quran Reflections - Pages 1&2 🕌</h1>
+            <h2 style="font-family: 'Scheherazade New', 'Amiri', serif; font-size: 1.8rem; margin-bottom: 10px; opacity: 0.95;">سُورَة الفَاتِحَة وَ سُورَة البَقَرَة</h2>
+            <p>Al-Fatiha (The Opening) & Beginning of Al-Baqarah</p>
+        </div>
+
+        <!-- Al-Fatiha -->
+        <div class="surah-container">
+            <div class="surah-header">
+                <h2 class="surah-title">سُورَة الفَاتِحَة</h2>
+                <h3 class="surah-title">Al-Fatiha (The Opening)</h3>
+                <div class="surah-info">Verses 1-7 • Meccan • The Foundation of Prayer</div>
+            </div>
+
+            <div class="verses-section">
+                <div class="verse-container" data-surah="1" data-verse="1">
+                    <div class="verse-number">1</div>
+                    <div class="arabic-text">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+                    <div class="english-text">In the name of Allah, the Entirely Merciful, the Especially Merciful.</div>
+                </div>
+
+                <div class="verse-container" data-surah="1" data-verse="2">
+                    <div class="verse-number">2</div>
+                    <div class="arabic-text">الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ</div>
+                    <div class="english-text">[All] praise is [due] to Allah, Lord of the worlds.</div>
+                </div>
+
+                <div class="verse-container" data-surah="1" data-verse="3">
+                    <div class="verse-number">3</div>
+                    <div class="arabic-text">الرَّحْمَٰنِ الرَّحِيمِ</div>
+                    <div class="english-text">The Entirely Merciful, the Especially Merciful.</div>
+                </div>
+
+                <div class="verse-container" data-surah="1" data-verse="4">
+                    <div class="verse-number">4</div>
+                    <div class="arabic-text">مَالِكِ يَوْمِ الدِّينِ</div>
+                    <div class="english-text">Sovereign of the Day of Recompense.</div>
+                </div>
+
+                <div class="verse-container" data-surah="1" data-verse="5">
+                    <div class="verse-number">5</div>
+                    <div class="arabic-text">إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ</div>
+                    <div class="english-text">It is You we worship and You we ask for help.</div>
+                </div>
+
+                <div class="verse-container" data-surah="1" data-verse="6">
+                    <div class="verse-number">6</div>
+                    <div class="arabic-text">اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ</div>
+                    <div class="english-text">Guide us to the straight path.</div>
+                </div>
+
+                <div class="verse-container" data-surah="1" data-verse="7">
+                    <div class="verse-number">7</div>
+                    <div class="arabic-text">صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ</div>
+                    <div class="english-text">The path of those upon whom You have bestowed favor, not of those who have evoked [Your] anger or of those who are astray.</div>
+                </div>
+            </div>
+
+            <div class="reflections-section">
+                <div class="reflections-header">
+                    <h3>🌟 تأملات في سورة الفاتحة</h3>
+                    <p>Reflections on Al-Fatiha</p>
+                </div>
+
+                <div class="reflection-block">
+                    <div class="reflection-arabic">
+                        سورة الفاتحة هي أم الكتاب وأعظم سورة في القرآن الكريم. تبدأ بالبسملة التي تعلمنا أن نبدأ كل عمل باسم الله طلباً للبركة والتوفيق. ثم الحمد لله رب العالمين يزرع في قلوبنا الامتنان والشكر. والرحمن الرحيم يذكرنا برحمة الله الواسعة. ومالك يوم الدين ينبهنا إلى يوم الحساب والجزاء. وإياك نعبد وإياك نستعين يؤكد التوحيد الخالص. واهدنا الصراط المستقيم دعاء يومي للهداية. وصراط الذين أنعمت عليهم يعلمنا أن نقتدي بالصالحين ونتجنب طرق الضلال. هذه السورة المباركة تجمع كل ما يحتاجه المؤمن في دعائه وعبادته.
+                    </div>
+                    <div class="reflection-english">
+                        Al-Fatiha is the Mother of the Book and the greatest surah in the Quran. It begins with Bismillah, teaching us to start every deed with Allah's name seeking blessings and success. "Praise be to Allah, Lord of the worlds" plants gratitude in our hearts. "The Entirely Merciful, the Especially Merciful" reminds us of Allah's vast compassion. "Master of the Day of Judgment" alerts us to accountability. "You alone we worship and You alone we ask for help" affirms pure monotheism. "Guide us to the straight path" is our daily prayer for guidance. "The path of those You have blessed" teaches us to follow the righteous and avoid paths of misguidance. This blessed surah contains everything a believer needs in their prayers and worship.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Al-Baqarah Opening -->
+        <div class="surah-container">
+            <div class="surah-header">
+                <h2 class="surah-title">سُورَة البَقَرَة</h2>
+                <h3 class="surah-title">Al-Baqarah (The Cow)</h3>
+                <div class="surah-info">Beginning Verses • Medinan • The Longest Surah</div>
+            </div>
+
+            <div class="verses-section">
+                <div class="verse-container" data-surah="2" data-verse="1">
+                    <div class="verse-number">1</div>
+                    <div class="arabic-text">الم</div>
+                    <div class="english-text">Alif, Lam, Meem.</div>
+                </div>
+
+                <div class="verse-container" data-surah="2" data-verse="2">
+                    <div class="verse-number">2</div>
+                    <div class="arabic-text">ذَٰلِكَ الْكِتَابُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَ</div>
+                    <div class="english-text">This is the Book about which there is no doubt, a guidance for those conscious of Allah.</div>
+                </div>
+
+                <div class="verse-container" data-surah="2" data-verse="3">
+                    <div class="verse-number">3</div>
+                    <div class="arabic-text">الَّذِينَ يُؤْمِنُونَ بِالْغَيْبِ وَيُقِيمُونَ الصَّلَاةَ وَمِمَّا رَزَقْنَاهُمْ يُنفِقُونَ</div>
+                    <div class="english-text">Who believe in the unseen, establish prayer, and spend out of what We have provided for them.</div>
+                </div>
+
+                <div class="verse-container" data-surah="2" data-verse="4">
+                    <div class="verse-number">4</div>
+                    <div class="arabic-text">وَالَّذِينَ يُؤْمِنُونَ بِمَا أُنزِلَ إِلَيْكَ وَمَا أُنزِلَ مِن قَبْلِكَ وَبِالْآخِرَةِ هُمْ يُوقِنُونَ</div>
+                    <div class="english-text">And who believe in what has been revealed to you, [O Muhammad], and what was revealed before you, and of the Hereafter they are certain.</div>
+                </div>
+
+                <div class="verse-container" data-surah="2" data-verse="5">
+                    <div class="verse-number">5</div>
+                    <div class="arabic-text">أُولَٰئِكَ عَلَىٰ هُدًى مِّن رَّبِّهِمْ ۖ وَأُولَٰئِكَ هُمُ الْمُفْلِحُونَ</div>
+                    <div class="english-text">Those are upon [right] guidance from their Lord, and it is those who are the successful.</div>
+                </div>
+            </div>
+
+            <div class="reflections-section">
+                <div class="reflections-header">
+                    <h3>🌟 تأملات في بداية سورة البقرة</h3>
+                    <p>Reflections on the Opening of Al-Baqarah</p>
+                </div>
+
+                <div class="reflection-block">
+                    <div class="reflection-arabic">
+                        تبدأ سورة البقرة بالحروف المقطعة "الم" التي تذكرنا بأن في القرآن أسراراً لا يعلمها إلا الله، فنقترب منه بتواضع وخشوع. ثم يؤكد القرآن أنه كتاب لا ريب فيه، هداية للمتقين الذين يؤمنون بالغيب ويقيمون الصلاة وينفقون مما رزقهم الله. هؤلاء المؤمنون يصدقون بكل الرسالات السماوية ويوقنون بالآخرة. والنتيجة أنهم على هدى من ربهم وهم المفلحون حقاً. هذه الآيات تضع صفات المؤمنين الحقيقيين وتبشرهم بالفلاح والنجاح في الدنيا والآخرة.
+                    </div>
+                    <div class="reflection-english">
+                        Al-Baqarah begins with the mysterious letters "Alif-Lam-Meem," reminding us that the Quran contains secrets known only to Allah, so we approach it with humility and reverence. The Quran then affirms itself as a book without doubt, guidance for the God-conscious who believe in the unseen, establish prayer, and spend from what Allah has provided. These believers accept all divine revelations and are certain of the Hereafter. The result is that they are upon guidance from their Lord and are truly successful. These verses establish the qualities of genuine believers and give them glad tidings of success and prosperity in this world and the next.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation">
+            <div class="coming-soon">
+                <h3 style="font-family: 'Scheherazade New', 'Amiri', serif; font-size: 1.6rem; margin-bottom: 8px;">🌅 قادم غداً صباحاً</h3>
+                <h3>🌅 Coming Tomorrow Morning</h3>
+                <p style="font-family: 'Scheherazade New', 'Amiri', serif; font-size: 1.2rem; margin-bottom: 8px;"><span class="highlight">الصفحة ٣:</span> سورة البقرة الآيات ٦-١٦</p>
+                <p><span class="highlight">Page 3:</span> Al-Baqarah verses 6-16</p>
+                <p style="font-family: 'Scheherazade New', 'Amiri', serif; font-size: 1rem; font-style: italic; margin-bottom: 5px;">بينما نواصل هذه الرحلة الروحانية الجميلة عبر كتاب الله</p>
+                <p><em>As we continue this beautiful spiritual journey through the Book of Allah</em></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Simple verse interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add gentle hover effects and interaction
+            document.querySelectorAll('.verse-container').forEach(container => {
+                container.addEventListener('click', () => {
+                    // Remove previous highlights
+                    document.querySelectorAll('.verse-container.active').forEach(el => {
+                        el.classList.remove('active');
+                    });
+                    
+                    // Add highlight to clicked verse
+                    container.classList.add('active');
+                    
+                    // Scroll to verse smoothly
+                    container.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Remove highlight after 3 seconds
+                    setTimeout(() => {
+                        container.classList.remove('active');
+                    }, 3000);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
